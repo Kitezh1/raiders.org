@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+        
+        button {
+            width: 100px;
+            height: 50px;
+            background-color: #fff;
+            cursor: pointer;
+        }
+        
+        .blue {
+            background-color: blue !important;
+        }
+        
+        #message {
+            margin-top: 20px;
+            font-weight: bold;
+            font-size: xx-large;
+            color: green;
+        }
+    </style>
+    <title>Button Puzzle</title>
+</head>
+
+<body>
+    <button onclick="toggleColor(0)">Button 1</button>
+    <button onclick="toggleColor(1)">Button 2</button>
+    <button onclick="toggleColor(2)">Button 3</button>
+    <button onclick="toggleColor(3)">Button 4</button>
+    <button onclick="toggleColor(4)">Button 5</button>
+    <button onclick="toggleColor(5)">Button 6</button>
+    <button onclick="toggleColor(6)">Button 7</button>
+    <button onclick="toggleColor(7)">Button 8</button>
+    <button onclick="toggleColor(8)">Button 9</button>
+
+    <div id="message"></div>
+
+    <script>
+        const buttons = document.querySelectorAll('button');
+        const messageElement = document.getElementById('message');
+
+        function toggleColor(index) {
+            buttons[index].classList.toggle('blue');
+            checkPuzzle();
+        }
+
+        function checkPuzzle() {
+            const blueButtons = document.querySelectorAll('.blue');
+
+            if (blueButtons.length === 3 &&
+                buttons[0].classList.contains('blue') &&
+                buttons[3].classList.contains('blue') &&
+                buttons[6].classList.contains('blue')) {
+                messageElement.textContent = 'Puzzle Solved!';
+            } else {
+                messageElement.textContent = '';
+            }
+        }
+    </script>
+</body>
+
+</html>
