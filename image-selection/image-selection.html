@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image Slider</title>
+    <style>
+        body {
+            text-align: center;
+            margin: 50px;
+        }
+        
+        img {
+            max-width: 100%;
+            max-height: 100%;
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+
+    <img class="imageSlider" src="IMAGES/0.PNG" alt="Image Slider" onclick="changeImage(0)">
+    <p>Clue: This person is blond and has blue eyes!</p>
+
+    <img class="imageSlider" src="IMAGES/0.PNG" alt="Image Slider" onclick="changeImage(1)">
+    <p>Clue: This person is blond and has blue eyes!</p>
+
+    <script>
+        // Array of image sources
+        const images = ["IMAGES/0.PNG", "IMAGES/1.PNG", "IMAGES/2.PNG", "IMAGES/3.PNG"];
+
+        // Variable to keep track of the current image index
+        let currentIndex = 0;
+        const imageSliders = document.getElementsByClassNames('imageSlider');
+
+        // Function to change the image on click
+        function changeImage(index) {
+            // Increment the index
+            currentIndex++;
+
+            // Check if the index is out of bounds
+            if (currentIndex >= images.length) {
+                currentIndex = 0; // Reset to the first image
+            }
+
+            // Get the image element by ID
+            const imageElement = document.getElementsByClassName('imageSlider')[index];
+
+            // Change the source of the image
+            imageElement.src = images[currentIndex];
+        }
+    </script>
+
+</body>
+
+</html>
